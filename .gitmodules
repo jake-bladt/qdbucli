@@ -1,3 +1,6 @@
 [submodule "QDBackup"]
 	path = QDBackup
 	url = git@github.com:jake-bladt/QDBackup.git
+[submodule "ReplMvc"]
+	path = ReplMvc
+	url = git@github.com:jake-bladt/ReplMvc.git

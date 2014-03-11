@@ -53,7 +53,7 @@ namespace qdbucli.Controllers
 
         public ActionResult NewSet(string[] args)
         {
-            if (null == args || args.Count() < 1) return new ActionResult(new string[] { "USAGE: create-set <setname>" });
+            if (null == args || args.Count() < 1) return new ActionResult(new string[] { "USAGE: create-set <setname>" }, false);
             string setName = args[0];
             if (_setList.ContainsKey(setName))
             {

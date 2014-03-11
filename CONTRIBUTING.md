@@ -8,5 +8,6 @@ App.config refers to an external config file for connection strings. This is don
 
 ```xml
 <connectionStrings></connectionStrings>
+```
 
 This will become useful once database support is added.

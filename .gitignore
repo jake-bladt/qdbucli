@@ -72,4 +72,4 @@ packages/
 *.orig
 
 # secrets
-[Ss]ecret*
+[Ss]ecret*.config

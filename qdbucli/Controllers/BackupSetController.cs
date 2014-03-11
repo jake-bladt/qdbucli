@@ -41,7 +41,7 @@ namespace qdbucli.Controllers
             if (_setList.ContainsKey(setName))
             {
                 _activeSet = _setList[setName];
-                var msgs = new string[] { String.Format("{0} is the active set.", setName) };
+                var msgs = new string[] { String.Format("{0} is now the active set.", setName) };
                 return new ActionResult(msgs, true, false);
             }
             else
@@ -51,11 +51,30 @@ namespace qdbucli.Controllers
             }
         }
 
+        public ActionResult NewSet(string[] args)
+        {
+            if (args.Count() < 1) return new ActionResult(new string[] { "USAGE: create-set <setname>" }, false, true);
+            string setName = args[0];
+            if (_setList.ContainsKey(setName))
+            {
+                var msgs = new string[] { String.Format("There is already a set named {0}. Please select another name.", setName) };
+                return new ActionResult(msgs, false, false);
+            }
+            else
+            {
+                _activeSet = new BackupSet();
+                _setList[setName] = _activeSet;
+                var msgs = new string[] { String.Format("{0} is now the active set.", setName) };
+                return new ActionResult(msgs, true, false);
+            }
+        }
+
         public Dictionary<string, Func<string[], ReplMvc.ActionResult>> GetCommandActions()
         {
             return new Dictionary<string, Func<string[], ActionResult>> {
                 { "list-sets", this.ListSets },
-                { "load-set", this.LoadSet }
+                { "load-set", this.LoadSet },
+                { "create-set", this.NewSet }
             };
         }
 

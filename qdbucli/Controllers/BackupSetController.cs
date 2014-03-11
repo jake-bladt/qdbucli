@@ -22,7 +22,7 @@ namespace qdbucli.Controllers
 
         public ActionResult ListSets(string[] args)
         {
-            var ret = new ActionResult(null, true, false);
+            var ret = new ActionResult(null, true);
             if (_setList.Count == 0)
             {
                 ret.Messages = new string[] { "(no sets)" };
@@ -36,36 +36,36 @@ namespace qdbucli.Controllers
 
         public ActionResult LoadSet(string[] args)
         {
-            if (null == args || args.Count() < 1) return new ActionResult(new string[] { "USAGE: load-set <setname>" }, false, true);
+            if (null == args || args.Count() < 1) return new ActionResult(new string[] { "USAGE: load-set <setname>" }, false);
             string setName = args[0];
             if (_setList.ContainsKey(setName))
             {
                 _activeSet = _setList[setName];
                 var msgs = new string[] { String.Format("{0} is now the active set.", setName) };
-                return new ActionResult(msgs, true, false);
+                return new ActionResult(msgs, true);
             }
             else
             {
                 var msgs = new string[] { String.Format("There is no set named {0}.", setName) };
-                return new ActionResult(msgs, false, false);
+                return new ActionResult(msgs, false);
             }
         }
 
         public ActionResult NewSet(string[] args)
         {
-            if (null == args || args.Count() < 1) return new ActionResult(new string[] { "USAGE: create-set <setname>" }, false, true);
+            if (null == args || args.Count() < 1) return new ActionResult(new string[] { "USAGE: create-set <setname>" });
             string setName = args[0];
             if (_setList.ContainsKey(setName))
             {
                 var msgs = new string[] { String.Format("There is already a set named {0}. Please select another name.", setName) };
-                return new ActionResult(msgs, false, false);
+                return new ActionResult(msgs, false);
             }
             else
             {
                 _activeSet = new BackupSet();
                 _setList[setName] = _activeSet;
                 var msgs = new string[] { String.Format("{0} is now the active set.", setName) };
-                return new ActionResult(msgs, true, false);
+                return new ActionResult(msgs, true);
             }
         }
 

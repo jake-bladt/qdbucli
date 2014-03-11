@@ -73,3 +73,6 @@ packages/
 
 # secrets
 [Ss]ecret*.config
+
+# backup list storage
+setlist.xml

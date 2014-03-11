@@ -48,6 +48,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QDBackup\QDBackup\QDBackup.csproj">
+      <Project>{6780f3be-cc6d-412a-8296-58cca77d84fd}</Project>
+      <Name>QDBackup</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReplMvc\ReplMvc\ReplMvc.csproj">
+      <Project>{0132b3dc-68ef-4928-a638-1d803bd997b9}</Project>
+      <Name>ReplMvc</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

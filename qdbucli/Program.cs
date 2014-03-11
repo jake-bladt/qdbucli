@@ -16,7 +16,7 @@ namespace qdbucli
         {
             var view = new ConsoleView();
 
-            var app = new ReplApplication(view, null);
+            var app = new ReplApplication(view, null) { Quieter = true };
             app.Repl();
         }
     }

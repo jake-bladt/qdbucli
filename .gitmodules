@@ -1,0 +1,3 @@
+[submodule "QDBackup"]
+	path = QDBackup
+	url = git@github.com:jake-bladt/QDBackup.git

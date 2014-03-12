@@ -1,8 +1,0 @@
-[submodule "QDBackup"]
-	path = QDBackup
-	url = git@github.com:jake-bladt/QDBackup.git
-	branch = develop
-[submodule "ReplMvc"]
-	path = ReplMvc
-	url = git@github.com:jake-bladt/ReplMvc.git
-	branch = develop

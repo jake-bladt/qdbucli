@@ -76,3 +76,7 @@ packages/
 
 # backup list storage
 setlist.xml
+
+# subrepos
+ReplMvc/
+QDBackup/

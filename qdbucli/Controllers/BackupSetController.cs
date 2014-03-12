@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using QDBackup;
+using QDBackup.Mappers;
 using ReplMvc;
 using ReplMvc.Controllers;
 
@@ -12,12 +13,14 @@ namespace qdbucli.Controllers
 {
     public class BackupSetController : IController
     {
+        private IBackupSetListMapper  _setListMapper;
         private BackupSetList _setList;
         private BackupSet _activeSet = null;
 
-        public BackupSetController(BackupSetList list)
+        public BackupSetController(IBackupSetListMapper listMapper)
         {
-            _setList = list;
+            _setListMapper = listMapper;
+            _setList = _setListMapper.Load();
         }
 
         public ActionResult ListSets(string[] args)
@@ -64,6 +67,7 @@ namespace qdbucli.Controllers
             {
                 _activeSet = new BackupSet();
                 _setList[setName] = _activeSet;
+                _setList.Save();
                 var msgs = new string[] { String.Format("{0} is now the active set.", setName) };
                 return new ActionResult(msgs, true);
             }

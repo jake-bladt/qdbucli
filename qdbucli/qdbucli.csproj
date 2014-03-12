@@ -51,9 +51,7 @@
     <None Include="Secret.db.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sets\.gitkeep">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Sets\setlist.xml.sample" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QDBackup\QDBackup\QDBackup.csproj">
@@ -64,11 +62,6 @@
       <Project>{0132b3dc-68ef-4928-a638-1d803bd997b9}</Project>
       <Name>ReplMvc</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Sets\setlist.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

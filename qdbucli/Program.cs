@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,9 @@ namespace qdbucli
 
         static void Main(string[] args)
         {
-            string xmlFilePath = Path.Combine(Environment.CurrentDirectory, "Sets", "setlist.xml");
-            _SetListMapper = new XmlBackupSetListMapper(xmlFilePath);
+            string connectionString = ConfigurationManager.ConnectionStrings["qd"].ToString();
+            _SetListMapper = new SqlBackupSetListMapper(connectionString);
+
             var setController = new BackupSetController(_SetListMapper);
 
             var view = new ConsoleView();

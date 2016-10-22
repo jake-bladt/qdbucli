@@ -9,9 +9,14 @@ Also, unless you see a master branch, it's not done yet. Don't rely on it for ba
 This project relies on two other repos, both under active development. To bring down the full codebase, execute the following:
 
 `git clone https://github.com/jake-bladt/qdbucli.git`
+
 `cd qdbucli`
+
 `git clone https://github.com/jake-bladt/QDBackup.git`
+
 `git clone https://github.com/jake-bladt/ReplMvc.git`
+
+**Updates 22-October-2016**: I must have written this before I understood git submodules.
 
 In the main project, create a file called Secret.db.config with the following content:
 ```xml
